@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "module": "commonjs",
+    "removeComments": true,
+    "target": "ES5",
+    "strict": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": false,
+    "jsx": "react",
+    "skipLibCheck": true,
+    "importHelpers": true,
+    "noImplicitAny": false,
+    "lib": ["es7"],
+    "baseUrl": ".",
+    "paths": {
+      "@mod/*": ["./models/*"],
+      "@comp/*": ["./components/*"],
+      "@page/*": ["./pages/*"],
+      "@serv/*": ["./services/*"],
+      "@utl/*": ["./utils/*"],
+    },
+    "typeRoots": ["node_modules/@types/", "typings/"]
+  },
+  "exclude": [
+    "node_modules",
+    "typings"
+  ]
+}

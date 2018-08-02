@@ -1,0 +1,26 @@
+
+header, footer {
+  height: 50px;
+  background: #4d4b4b;
+  color: #fff;
+  line-height: 50px;
+  padding: 0 20px;
+  size: 16px;
+  display: block;
+}
+
+footer {
+  text-align: right;
+}
+
+.appshell {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content {
+  flex: 1;
+}
+
