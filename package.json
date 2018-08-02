@@ -9,7 +9,7 @@
     "start": "next start",
     "tsc:w": "tsc -w"
   },
-  "keywords": [],
+  "keywords": ["boilerplate", "next", "mobx"],
   "author": "",
   "license": "ISC",
   "dependencies": {
