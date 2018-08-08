@@ -1,16 +1,13 @@
 import * as path from 'path';
-import * as withCSS from '@zeit/next-css';
-import { Configuration, RuleSetRule } from 'webpack';
-
-interface IOption {
-  defaultLoaders: {
-    css: RuleSetRule
-  };
-}
+import * as withCSS from 'next-typed-css';
+import { Configuration } from 'webpack';
 
 export default withCSS({
-  cssModules: true,
-  webpack: (config: Configuration, option: IOption) => {
+  tsCssModules: true,
+  cssLoaderOptions: {
+    namedExport: true
+  },
+  webpack: (config: Configuration) => {
     config.resolve = {
       alias: {
         '@mod': path.resolve(__dirname, './models'),
@@ -20,21 +17,6 @@ export default withCSS({
         '@utl': path.resolve(__dirname, './utils'),
       }
     };
-    option.defaultLoaders.css = {
-      rules: [
-        {
-          test: /\.css/,
-          use: [{
-            loader: 'typings-for-css-modules-loader',
-            options: {
-              modules: true,
-              namedExport: true
-            }
-          }]
-        }
-      ]
-    };
-
     return config;
   }
 });
