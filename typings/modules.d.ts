@@ -1,3 +1,3 @@
 
 declare module 'next';
-declare module '@zeit/next-css';
+declare module 'next-typed-css';

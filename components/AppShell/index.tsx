@@ -4,7 +4,7 @@ import * as css from './index.css';
 
 interface IProps {
   title?: string;
-  children?: React.ReactChildren;
+  children?: React.ReactNode;
 }
 
 export default (props: IProps) => (
