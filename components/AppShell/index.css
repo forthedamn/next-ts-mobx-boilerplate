@@ -1,5 +1,6 @@
 
-header, footer {
+header,
+footer {
   height: 50px;
   background: #4d4b4b;
   color: #fff;
@@ -23,4 +24,3 @@ footer {
 .content {
   flex: 1;
 }
-

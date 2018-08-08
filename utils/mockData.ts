@@ -1,25 +1,25 @@
-import { ITodo, StatusEnum } from '@serv/todo';
+import { ITodo } from '@serv/todo';
 
 export const mockList: ITodo[] = [
   {
     id: '1',
     schema: 'A',
     content: 'Do sth with my A plan',
-    createTime: new Date('20180101'),
-    status: StatusEnum.close,
+    createTime: new Date('2018-01-01'),
+    status: 1,
   },
   {
     id: '2',
     schema: 'B',
     content: 'Do sth with my B plan',
-    createTime: new Date('20180102'),
-    status: StatusEnum.open,
+    createTime: new Date('2018-01-02'),
+    status: 2,
   },
   {
     id: '3',
     schema: 'C',
     content: 'Do sth with my C plan',
-    createTime: new Date('20180103'),
-    status: StatusEnum.delete,
+    createTime: new Date('2018-01-03'),
+    status: 0,
   }
 ];

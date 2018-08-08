@@ -7,11 +7,18 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "tsc:w": "tsc -w"
+    "tsc:w": "tsc -w --inlineSourceMap",
+    "lint:css": "stylelint 'pages/**/*.css' 'components/**/*.css'",
+    "lint:ts": "tslint -p './tsconfig.json' -e 'node_modules/**' '**/*.{ts,tsx}'",
+    "precommit": "npm run lint:css && npm run lint:ts"
   },
-  "keywords": ["boilerplate", "next", "mobx"],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "boilerplate",
+    "next",
+    "mobx"
+  ],
+  "author": "forthedamn<simonzhong0924@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "mobx": "^5.0.3",
     "mobx-react": "^5.2.3",
@@ -22,9 +29,13 @@
   "devDependencies": {
     "@types/node": "^10.5.4",
     "@types/react": "^16.4.7",
-    "@zeit/next-css": "^0.2.0",
+    "@types/webpack": "^4.4.9",
+    "husky": "^0.14.3",
+    "next-typed-css": "0.2.1",
     "postcss-cssnext": "^3.1.0",
     "postcss-nested": "^3.0.0",
+    "stylelint": "^9.4.0",
+    "stylelint-config-standard": "^18.2.0",
     "tslib": "^1.9.3",
     "tslint": "^5.11.0",
     "tslint-react": "^3.6.0",

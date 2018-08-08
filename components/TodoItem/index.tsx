@@ -1,18 +1,26 @@
 import * as React from 'react';
+import { ITodo, StatusEnum } from '@serv/todo';
+import { format } from '@utl/timer';
 
 import * as css from './index.css';
 
-interface IProps {
-  schema?: string;
-  content?: string;
-}
+interface IProps extends ITodo {}
 
-export default (props: IProps) => (
-  <div className={css.appshell}>
-    <header>{props.title || 'My TodoList'}</header>
-      <div className="content">
-        {props.children}
+export default (props: IProps) => {
+  return (
+    <div>
+      <div className={css.schema}>
+        {props.schema}
       </div>
-    <footer>Copyright © 2018 TodoList💗.</footer>
-  </div>
-);
+      <div className={css.createTime}>
+        {format(props.createTime)}
+      </div>
+      <div className={css.content}>
+        {props.content}
+      </div>
+      <div className={css.status}>
+        <input type="checkbox" checked={props.status === StatusEnum.close}/>
+      </div>
+    </div>
+  );
+};
