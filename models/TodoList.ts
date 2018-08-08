@@ -1,5 +1,5 @@
 import todoService, { ITodo } from '@serv/todo';
-import { observable, action, computed } from 'mobx';
+import { observable, action } from 'mobx';
 class TodoList {
   @observable
   todoList: ITodo[] = [];
