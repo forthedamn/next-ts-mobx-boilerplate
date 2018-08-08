@@ -22,5 +22,5 @@ export default (props: IProps) => {
         <input type="checkbox" checked={props.status === StatusEnum.close}/>
       </div>
     </div>
-  )
+  );
 };
