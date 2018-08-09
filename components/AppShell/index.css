@@ -23,4 +23,5 @@ footer {
 
 .content {
   flex: 1;
+  margin: 50px auto;
 }

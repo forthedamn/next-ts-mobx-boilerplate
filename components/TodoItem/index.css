@@ -1,4 +1,39 @@
 
+.schema,
+.content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .schema {
-  color: #eee;
+  max-width: 150px;
+}
+
+.content {
+  color: #888;
+  max-width: 240px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 15px 0;
+
+  &:not(:first-child) {
+    border-top: 1px dotted #888;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background: #f8f8f8;
+  }
+}
+
+.line {
+  flex-basis: 100%;
+  display: flex;
+  justify-content: space-between;
+  line-height: 30px;
 }

@@ -4,22 +4,32 @@ import { format } from '@utl/timer';
 
 import * as css from './index.css';
 
-interface IProps extends ITodo {}
+interface IProps extends ITodo {
+  onChange: () => void;
+}
 
 export default (props: IProps) => {
   return (
-    <div>
-      <div className={css.schema}>
-        {props.schema}
+    <div className={css.container}>
+      <div className={css.line}>
+        <div className={css.schema} title={props.schema}>
+          {props.schema}
+        </div>
+        <div>
+          {format(props.createTime)}
+        </div>
       </div>
-      <div className={css.createTime}>
-        {format(props.createTime)}
-      </div>
-      <div className={css.content}>
-        {props.content}
-      </div>
-      <div className={css.status}>
-        <input type="checkbox" checked={props.status === StatusEnum.close}/>
+      <div className={css.line}>
+        <div className={css.content}>
+          {props.content}
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            onChange={props.onChange}
+            checked={props.status === StatusEnum.close}
+          />
+        </div>
       </div>
     </div>
   );

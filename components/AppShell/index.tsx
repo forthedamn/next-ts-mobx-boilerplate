@@ -10,7 +10,7 @@ interface IProps {
 export default (props: IProps) => (
   <div className={css.appshell}>
     <header>{props.title || 'My TodoList'}</header>
-      <div className="content">
+      <div className={css.content}>
         {props.children}
       </div>
     <footer>Copyright © 2018 TodoList💗.</footer>

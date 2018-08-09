@@ -1,9 +1,8 @@
 import { mockList } from '@utl/mockData';
 
 export enum StatusEnum {
-  delete = 0,
-  close = 1,
-  open = 2,
+  close = 0,
+  open = 1,
 }
 export interface ITodo {
   id?: string;
