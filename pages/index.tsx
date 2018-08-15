@@ -9,7 +9,7 @@ import * as css from './index.css';
 @observer
 export default class TodoList extends React.Component {
 
-  async componentWillMount() {
+  async componentDidMount() {
     await model.fetchTodoList();
   }
 
@@ -18,7 +18,7 @@ export default class TodoList extends React.Component {
       <div className={css.app}>
         <AppShell>
           {model.todoList.map((data, index) => {
-            return <TodoItem {...data} key={index}/>;
+            return <TodoItem {...data} onChange={() => { data.status = +!data.status; }} key={index}/>;
           })}
         </AppShell>
       </div>

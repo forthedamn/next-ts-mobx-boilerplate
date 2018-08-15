@@ -11,7 +11,6 @@
     "jsx": "react",
     "skipLibCheck": true,
     "importHelpers": true,
-    "noImplicitAny": false,
     "lib": ["es7"],
     "baseUrl": ".",
     "paths": {
@@ -21,10 +20,9 @@
       "@serv/*": ["./services/*"],
       "@utl/*": ["./utils/*"],
     },
-    "typeRoots": ["node_modules/@types/", "typings/"]
+    "typeRoots": ["node_modules/@types/", "./typings/"]
   },
   "exclude": [
     "node_modules",
-    "typings"
   ]
 }
