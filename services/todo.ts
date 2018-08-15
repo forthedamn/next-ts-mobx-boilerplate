@@ -19,6 +19,14 @@ class TodoService {
       }, 1000);
     });
   }
+
+  async fetchTodoDetail(id: string): Promise<ITodo> {
+    return await new Promise<ITodo>((resolve) => {
+      setTimeout(() => {
+        resolve(mockList.filter((item) => item.id === id)[0]);
+      }, 500);
+    });
+  }
 }
 
 export default new TodoService();
