@@ -11,7 +11,7 @@
     "jsx": "react",
     "skipLibCheck": true,
     "importHelpers": true,
-    "lib": ["es7"],
+    "lib": ["es7", "dom"],
     "baseUrl": ".",
     "paths": {
       "@mod/*": ["./models/*"],
