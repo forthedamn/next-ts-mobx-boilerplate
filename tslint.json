@@ -45,7 +45,6 @@
       "no-unsafe-finally": true,
       "no-var-keyword": true,
       "no-use-before-declare": true,
-      "no-unused-variable": [true, "react"],
       "jsx-no-lambda": false,
       "no-empty": false,
       "no-any": true,

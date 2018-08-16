@@ -10,6 +10,11 @@ class TodoDetail {
   async fetchTodoDetail(id: string): Promise<void> {
     this.todo = await todoService.fetchTodoDetail(id);
   }
+
+  @action
+  async updateTodoDetail(): Promise<{success: boolean}> {
+    return await todoService.updateTodo(this.todo);
+  }
 }
 
 export default new TodoDetail();

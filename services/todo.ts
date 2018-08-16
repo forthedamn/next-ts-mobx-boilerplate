@@ -16,7 +16,7 @@ class TodoService {
     return await new Promise<ITodo[]>((resolve) => {
       setTimeout(() => {
         resolve(mockList);
-      }, 1000);
+      }, 500);
     });
   }
 
@@ -27,6 +27,20 @@ class TodoService {
       }, 500);
     });
   }
+
+  async updateTodo(todo: ITodo) {
+    return await new Promise<{success: boolean}>((resolve) => {
+      setTimeout(() => {
+        mockList.forEach((item, index) => {
+          if (item.id === todo.id) {
+            mockList[index] = todo;
+          }
+        });
+        resolve({success: true});
+      }, 500);
+    });
+  }
+
 }
 
 export default new TodoService();

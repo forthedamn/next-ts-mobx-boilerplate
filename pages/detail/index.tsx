@@ -8,7 +8,7 @@ import Link from 'next/link';
 import * as css from './index.css';
 import * as commonCss from '../index.css';
 
-import TittleLine from './TittleLine';
+import TitleLine from './TitleLine';
 
 interface IProps extends NextProps<{ id: string}> {}
 
@@ -19,8 +19,9 @@ export default class TodoDetail extends React.Component<IProps> {
     await model.fetchTodoDetail(this.props.url.query.id);
   }
 
-  statusHandler() {
+  async statusHandler() {
     model.todo.status = model.todo.status = +!model.todo.status;
+    await model.updateTodoDetail();
   }
 
   deleteHandler() {
@@ -34,14 +35,29 @@ export default class TodoDetail extends React.Component<IProps> {
           <Link href={{pathname: '/'}}>
             <a>{`<Back`}</a>
           </Link>
-          <TittleLine
+          <TitleLine
             {...model.todo}
             statusHandler={this.statusHandler}
             deleteHandler={this.deleteHandler}
           />
-          <div className={css.content}>
+          <input
+            className={css.schema}
+            type="text"
+            value={model.todo.schema}
+            onChange={async (e) => {
+              model.todo.schema = e.target.value;
+              await model.updateTodoDetail();
+            }}
+          />
+          <textarea
+            className={css.content}
+            onChange={async (e) => {
+              model.todo.content = e.target.value;
+              await model.updateTodoDetail();
+            }}
+          >
             {model.todo.content}
-          </div>
+          </textarea>
         </AppShell>
       </div>
     );
