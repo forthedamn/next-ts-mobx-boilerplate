@@ -4,6 +4,7 @@ import AppShell from '@comp/AppShell';
 import { observer } from 'mobx-react';
 import { NextProps } from 'next';
 import Link from 'next/link';
+import Router from 'next/router';
 
 import * as css from './index.css';
 import * as commonCss from '../index.css';
@@ -24,8 +25,12 @@ export default class TodoDetail extends React.Component<IProps> {
     await model.updateTodoDetail();
   }
 
-  deleteHandler() {
-    console.log('delete');
+  async deleteHandler() {
+    model.todo.delete = true;
+    await model.updateTodoDetail();
+    return Router.push({
+      pathname: '/',
+    });
   }
 
   render() {
