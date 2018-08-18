@@ -1,12 +1,24 @@
 import todoService, { ITodo } from '@serv/todo';
-import { observable, action } from 'mobx';
+import { observable, action, computed } from 'mobx';
 class TodoList {
+
   @observable
-  todoList: ITodo[] = [];
+  _todoList: ITodo[] = [];
+
+  @computed
+  get todoList() {
+    return this._todoList.filter((item) => {
+      return !item.delete;
+    });
+  }
+
+  set todoList(value) {
+    this._todoList = value;
+  }
 
   @action
   async fetchTodoList(): Promise<void> {
-    this.todoList = await todoService.fetchTodoList();
+    this._todoList = await todoService.fetchTodoList();
   }
 }
 
