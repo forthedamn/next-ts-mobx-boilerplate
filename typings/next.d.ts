@@ -1,5 +1,5 @@
 
-// tslint:disable:max-classes-per-file no-any
+// tslint:disable
 declare module 'next/link' {
   interface ILinkProps {
     href: {
@@ -9,6 +9,15 @@ declare module 'next/link' {
   }
   class Link extends React.Component<ILinkProps> {}
   export default Link;
+}
+
+declare module 'next/router' {
+
+  namespace Router {
+    export function push({pathname: string}): void {}
+  }
+
+  export default Router;
 }
 
 declare module 'next/document' {

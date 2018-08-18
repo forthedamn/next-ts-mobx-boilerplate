@@ -5,9 +5,7 @@ import Link from 'next/link';
 
 import * as css from './index.css';
 
-interface IProps extends ITodo {
-  onChange: () => void;
-}
+interface IProps extends ITodo {}
 
 export default (props: IProps) => {
   return (
@@ -28,7 +26,6 @@ export default (props: IProps) => {
             <span>
               <input
                 type="checkbox"
-                onChange={props.onChange}
                 checked={props.status === StatusEnum.close}
               />
             </span>
