@@ -1,0 +1,15 @@
+.schema,
+.content {
+  width: 100%;
+  display: flex;
+  margin: 20px 0;
+
+  input,
+  textarea {
+    flex: 1;
+  }
+
+  textarea {
+    height: 40px;
+  }
+}
