@@ -10,3 +10,10 @@ body {
 .app {
   height: 100%;
 }
+
+.add {
+  width: 100%;
+  font-size: 20px;
+  line-height: 20px;
+  margin: 20px 0;
+}

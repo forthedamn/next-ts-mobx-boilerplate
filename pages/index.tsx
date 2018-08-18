@@ -3,6 +3,7 @@ import model from '@mod/TodoList';
 import AppShell from '@comp/AppShell';
 import { observer } from 'mobx-react';
 import TodoItem from '@comp/TodoItem';
+import Link from 'next/link';
 
 import * as css from './index.css';
 
@@ -17,8 +18,14 @@ export default class TodoList extends React.Component {
     return (
       <div className={css.app}>
         <AppShell>
+          <Link href={{pathname: '/create'}}>
+            <button className={css.add}>+</button>
+          </Link>
           {model.todoList.map((data, index) => {
-            return <TodoItem {...data} onChange={() => { data.status = +!data.status; }} key={index}/>;
+            return (<TodoItem
+              {...data}
+              key={index}
+            />);
           })}
         </AppShell>
       </div>
