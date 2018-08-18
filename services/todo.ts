@@ -10,6 +10,7 @@ export interface ITodo {
   content?: string;
   createTime?: Date;
   status?: StatusEnum;
+  delete?: boolean;
 }
 class TodoService {
   async fetchTodoList(): Promise<ITodo[]> {
@@ -37,6 +38,17 @@ class TodoService {
           }
         });
         resolve({success: true});
+      }, 500);
+    });
+  }
+
+  async createTodo(todo: ITodo) {
+    return await new Promise<{success: boolean, id: string}>((resolve) => {
+      setTimeout(() => {
+        todo.id = String(mockList.length + 1);
+        todo.createTime = new Date();
+        mockList.push(todo);
+        resolve({success: true, id: todo.id});
       }, 500);
     });
   }
