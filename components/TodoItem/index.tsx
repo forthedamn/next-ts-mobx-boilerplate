@@ -26,6 +26,7 @@ export default (props: IProps) => {
             <span>
               <input
                 type="checkbox"
+                readOnly
                 checked={props.status === StatusEnum.close}
               />
             </span>
