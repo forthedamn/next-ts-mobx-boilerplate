@@ -15,3 +15,41 @@ npm run tsc:w
 ```
 npm run dev
 ```
+
+# Feature
+
+- 1.Server Side Render
+- 2.Webpack In Out of The Box
+- 3.Typescript
+- 4.State Management in Simple Way
+- 5.CSS module and Typed CSS
+
+# Directory Structure
+
+```
+
+ ------------------------------------------------------------------     -----------     -----------
+|                                                                  |   |           |   |           |
+|                           Pages                                  |   |           |   |           |
+|                                                                  |   |           |   |           |
+ ------------------------------------------------------------------    |           |   |           |
+         |                                        |                    |           |   |           |
+        \ /                                      \ /                   |           |   |           |
+ ---------------------            ---------------------------------    |           |   |           |
+|                     |          |                                 |   |           |   |           |
+|     Components      |          |              Models             |   |           |   |           |
+| (Always stateless)  |          |   (Deal pages states with Mobx) |   |   Util    |   |  Typings  |
+|                     |          |                                 |   |           |   |           |
+ ---------------------            ---------------------------------    |           |   |           |
+                                                  |                    |           |   |           |
+                                                 \ /                   |           |   |           |
+                                   --------------------------------    |           |   |           |
+                                  |                                |   |           |   |           |
+                                  |            Services            |   |           |   |           |
+                                  |  (Connect with Back End. Stay  |   |           |   |           |
+                                  |    same with Domain Model as   |   |           |   |           |
+                                  |     possible)                  |   |           |   |           |
+                                   --------------------------------     -----------     -----------
+
+
+```
