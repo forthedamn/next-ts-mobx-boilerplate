@@ -17,4 +17,4 @@ class TodoDetail {
   }
 }
 
-export default new TodoDetail();
+export default TodoDetail;

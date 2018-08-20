@@ -1,5 +1,6 @@
+// tslint:disable:jsx-no-bind
 import * as React from 'react';
-import model from '@mod/TodoDetail';
+import Model from '@mod/TodoDetail';
 import AppShell from '@comp/AppShell';
 import { observer } from 'mobx-react';
 import { NextProps } from 'next';
@@ -16,18 +17,20 @@ interface IProps extends NextProps<{ id: string}> {}
 @observer
 export default class TodoDetail extends React.Component<IProps> {
 
+  model = new Model();
+
   async componentDidMount() {
-    await model.fetchTodoDetail(this.props.url.query.id);
+    await this.model.fetchTodoDetail(this.props.url.query.id);
   }
 
   async statusHandler() {
-    model.todo.status = model.todo.status = +!model.todo.status;
-    await model.updateTodoDetail();
+    this.model.todo.status  = +!this.model.todo.status;
+    await this.model.updateTodoDetail();
   }
 
   async deleteHandler() {
-    model.todo.delete = true;
-    await model.updateTodoDetail();
+    this.model.todo.delete = true;
+    await this.model.updateTodoDetail();
     return Router.push({
       pathname: '/',
     });
@@ -41,27 +44,27 @@ export default class TodoDetail extends React.Component<IProps> {
             <a>{`<Back`}</a>
           </Link>
           <TitleLine
-            {...model.todo}
-            statusHandler={this.statusHandler}
-            deleteHandler={this.deleteHandler}
+            {...this.model.todo}
+            statusHandler={this.statusHandler.bind(this)}
+            deleteHandler={this.deleteHandler.bind(this)}
           />
           <input
             className={css.schema}
             type="text"
-            value={model.todo.schema}
+            value={this.model.todo.schema}
             onChange={async (e) => {
-              model.todo.schema = e.target.value;
-              await model.updateTodoDetail();
+              this.model.todo.schema = e.target.value;
+              await this.model.updateTodoDetail();
             }}
           />
           <textarea
             className={css.content}
             onChange={async (e) => {
-              model.todo.content = e.target.value;
-              await model.updateTodoDetail();
+              this.model.todo.content = e.target.value;
+              await this.model.updateTodoDetail();
             }}
           >
-            {model.todo.content}
+            {this.model.todo.content}
           </textarea>
         </AppShell>
       </div>
